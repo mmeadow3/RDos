@@ -3,7 +3,7 @@
 const express = require('express')
 const { Server } = require('http')
 const mongoose = require('mongoose')
-var path = require("path"); /////needed for html hosting
+let path = require("path"); /////needed for html hosting
 const React = require("react")
 const os = require('os');
 
@@ -33,7 +33,21 @@ console.log("User info", os.userInfo().username); /////could be useful
 
 /////////////END OS and CPU Logic///////////////////////
 // console.log(os.networkInterfaces()); More Complicated, will return to this
+///////////////logical processors 
+var cpus = os.cpus();
 
+for(var i = 0, len = cpus.length; i < len; i++) {
+    console.log("CPU %s:", i);
+    var cpu = cpus[i], total = 0;
+
+    for(var type in cpu.times) {
+        total += cpu.times[type];
+    }
+
+    for(type in cpu.times) {
+        console.log("\t", type, Math.round(100 * cpu.times[type] / total));
+    }
+}
 console.log();
 
 
