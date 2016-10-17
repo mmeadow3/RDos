@@ -15,11 +15,7 @@ if (process.pid) {
   console.log('This process is your pid ' + process.pid);
 }
 
-if(running(277)){
-  console.log("slack is running" );
-} else {
-  console.log("nope");
-}
+
 
 
 ls.stdout.on('data', (data) => {
