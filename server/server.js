@@ -8,6 +8,18 @@ const React = require("react")
 const os = require('os');
 const spawn = require('child_process').spawn;
 const ls = spawn('ls', ['-lh', '/usr']);
+const process = require("process")
+const running = require('is-running')
+
+if (process.pid) {
+  console.log('This process is your pid ' + process.pid);
+}
+
+if(running(277)){
+  console.log("slack is running" );
+} else {
+  console.log("nope");
+}
 
 
 ls.stdout.on('data', (data) => {
